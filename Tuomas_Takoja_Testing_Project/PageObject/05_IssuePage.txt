@@ -1,0 +1,64 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+Documentation	Issue Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+# TODO: Write Precondition and Postcondition, Tags 
+
+Pre Condition	Browser open and a project already created
+Post Condition	Report the issue and close the browser
+Tags	Issues, New issue
+
+#******************* Common Variables ********************
+
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Issue creation field variables, Updated name of the issue
+
+Issue_Title= Issue 1
+Type= Issue
+Description= There is a severe bug
+Assignee= Assign to me
+Milestone= No Milestone
+Labels= No labels
+Due date= 31.5.2024
+Updated_Issue= Updated Issue 1
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive Test Cases and Test Process steps
+
+# Positive Test examples are below write test process steps for each below test case
+
+	Create issue,
+		Click on the option to create a new issue.
+		Enter a valid issue title (${issueTitle1}) and description.
+		Click on the create issue button.
+		Verify the successful creation of the issue.
+
+
+ 	Update name of issue, 
+		Find the option to edit the issue details.
+		Change the issue title to ${updatedIssueTitle}.
+		Save the changes.
+		Verify the successful update of the issue title.
+
+	Create second issue with privious updated name
+		Click on the option to create a new issue.
+		Enter a valid issue title (${updatedIssueTitle}) and description.
+		Click on the create issue button.
+		Verify the successful creation of the second issue with the updated name.
+
+    Delete first issue
+		Navigate to the project where the first issue is located.
+		Find the option to delete the issue.
+		Confirm the action to delete the issue.
+		Verify the successful deletion of the first issue.
+
+

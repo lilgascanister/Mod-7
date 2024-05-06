@@ -1,0 +1,85 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+
+# TODO: Write Dcocumentation e.g. Project Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+Documentation	How to create blank projects, create from templates or import a project. 
+
+# TODO: Write Precondition, Postcondition, Tags
+
+Pre Condition	Browser open and the Projects page is also open 
+Post Condition	Close all Browsers
+Tags	Project, create a project, import a project
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Project creation field variables
+
+Project_name= Mod 7 Project
+Project_url= mod-7
+Project_slug= mod7-project
+Project deployment target= Optional
+Visibility_level= Private
+Project_configuration= Initialize repository with a README
+Built-in templates= NodeJS Express
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive and Negative Test Cases and Test Process steps
+
+# Positive Test examples are below write test process steps for each below test case
+
+	Create blank project
+		Add Project Name
+		Add Project Project_url 
+		Add Project Project_slug
+		Add project deployment target OPTIONAL!
+		Select Visibility_level Private
+		Select Project_configuration
+		Press Create Project
+
+
+	Create template project
+		Select NodeJS Express and press Use template
+		Add Project_name
+		Add Project_url
+		Add Project_slug
+		Add Project description OPTIONAL!
+		Select Visibility_level Private
+		Press Create Project
+
+
+	Update name of template project
+		Open Project Settings
+		Select Project name and update name
+		Press Save Changes
+
+
+	Delete template project
+        Log in to GitLab with valid credentials.
+        Navigate to the settings or delete project option of the template project.
+        Confirm the action to delete the project.
+        Verify the successful deletion of the project.
+
+
+	Valide that message is showing Project 'First project ' was successfully created.
+
+
+# Negative Test examples are below write test process steps for each below test case
+
+	Create a blank project with the previous same name
+	Log in to GitLab with valid credentials.
+    Navigate to the project creation page.
+    Enter the same project name as an existing project (${templateProjectName}).
+    Click on the create project button.
+    Verify the error message indicating the project name already exists.
+
+

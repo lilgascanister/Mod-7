@@ -1,0 +1,93 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+
+Documentation	Testing the sign up functionality. Creating an account using valid and invalid usernames, emails and passwords. Also taking into account the "I want to..." -button on the sign up page.
+
+# TODO: Write Precondition, Postcondition, Tags
+
+Pre Condition	Open Browser
+Post Condition	Close All Browsers
+Tags	Sign up, register
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+# TODO: Write Registration field variables
+
+LoginUrl = https://gitlab.com/users/sign_up
+I want to Set Up a New Team
+FirstName= Tuomas
+Lastname= Takoja
+Username= tuomastakoja
+Email= email.email@gmail.com
+Password= tuomastakojatest1
+Invalid username= asd
+Invalid password= tuomas
+Empty= 
+
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# TODO: Write Positive and Negative Test Cases and Test Process steps (Think about possible test cases)
+
+# Positive Test examples are below write test process steps for each below test case
+
+	Sign up with factual credentials
+		Select from the "I want to..." - button the desired option
+		Input First name
+		Input Last name
+		Input username that is not taken (in this case tuomastakoja)
+		Input a working email
+		Input valid password
+		Solve the recaptcha
+
+# Negative Test examples keywords are below write test process steps for each below test case 
+
+	Sign up with taken username
+		Select from the "I want to..." - button the desired option
+		Input First name
+		Input Last name
+		Input username asd (taken)
+
+	Register user with same above username:
+        Input Username already existing in the system
+        Error message indicating username already taken
+        Navigate to the registration page.
+        Enter the username already used in the positive test case.
+        Enter a valid password and other necessary details.
+        Click on the register button.
+        Verify the error message for username availability.
+
+    Register user with empty password:
+        Input Empty password field
+        Error message indicating password is required
+        Navigate to the registration page.
+        Enter a valid username and leave the password field blank.
+        Enter other necessary details.
+        Click on the register button.
+        Verify the error message for the password field.
+
+    Register user with invalid email:
+        Input Invalid email format
+        Error message indicating invalid email format
+        Navigate to the registration page.
+        Enter a valid username, password, and an invalid email address.
+        Click on the register button.
+        Verify the error message for the email field.
+
+    Register user without reCAPTCHA:
+        Input Submitting registration form without completing reCAPTCHA
+        Error message indicating reCAPTCHA verification is required
+        Navigate to the registration page.
+        Fill in all the required fields including a valid username, password, and email.
+        Skip or fail to complete the reCAPTCHA challenge.
+        Click on the register button.
+        Verify the error message for the reCAPTCHA verification.
+
